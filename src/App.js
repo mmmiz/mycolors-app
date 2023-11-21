@@ -1,6 +1,28 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import axios from 'axios';
+
+const Home = ({ message }) => (
+  <div>
+    <h1>React Frontend</h1>
+    <p>Message from server: {message}</p>
+  </div>
+);
+
+const About = () => (
+  <div>
+    <h2>About</h2>
+    <p>This is the about page.</p>
+  </div>
+);
+
+const Contact = () => (
+  <div>
+    <h2>Contact</h2>
+    <p>This is the contact page.</p>
+  </div>
+);
 
 function App() {
   const [message, setMessage] = useState('');
@@ -40,18 +62,42 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>React Frontend</h1>
-      <p>Message from server: {message}</p>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+          </ul>
+        </nav>
 
-      <form onSubmit={handleSubmit}>
-        <label>
-          Enter something:
-          <input type="text" value={inputText} onChange={handleInputChange} />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/">
+            <Home message={message} />
+            <form onSubmit={handleSubmit}>
+              <label>
+                Enter something:
+                <input type="text" value={inputText} onChange={handleInputChange} />
+              </label>
+              <button type="submit">Submit</button>
+            </form>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
