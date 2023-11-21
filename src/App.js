@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Home = ({ message }) => (
@@ -78,7 +78,7 @@ function App() {
           </ul>
         </nav>
 
-        <Switch>
+      
           <Route path="/about">
             <About />
           </Route>
@@ -95,7 +95,7 @@ function App() {
               <button type="submit">Submit</button>
             </form>
           </Route>
-        </Switch>
+
       </div>
     </Router>
   );
