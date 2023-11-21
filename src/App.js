@@ -8,7 +8,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('https://test-server-api-a86y.onrender.com/api/message');
+        const response = await axios.get('https://test-server-be.onrender.com/api/message');
         setMessage(response.data.message);
       } catch (error) {
         console.error('Error fetching data:', error);
