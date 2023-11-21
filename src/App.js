@@ -115,20 +115,42 @@
 // export default App;
 
 
-import Routes from './routes/index';
-import { BrowserRouter as Router } from 'react-router-dom';
+// import Routes from './routes/index';
+// import { BrowserRouter as Router } from 'react-router-dom';
 
-export default function App() {
+// export default function App() {
+//   return (
+//     <Router>
+//     <div>
+//       <header>
+//         <Routes />
+//       </header>
+//     </div>
+//     </Router>
+//   );
+// }
+
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+// Components for different pages
+const HomePage = () => <div>Home Page</div>;
+const LoginPage = () => <div>Login Page</div>;
+
+const App = () => {
   return (
     <Router>
-    <div>
-      <header>
-        <Routes />
-      </header>
-    </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/auth/login" element={<LoginPage />} />
+      </Routes>
     </Router>
   );
-}
+};
+
+export default App;
+
 
 
 
