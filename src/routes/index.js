@@ -1,11 +1,11 @@
 import React from 'react'
 import { useRoutes } from 'react-router-dom'
-import Unko from '../page/Unko';
+import Test from '../page/Test';
 
 export default function Routes() {
   return useRoutes ([
     {
-      path: "/unko", element: <Unko />
+      path: "/auth", element: <Test />
     }
   ])
 }
