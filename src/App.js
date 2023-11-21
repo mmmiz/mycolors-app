@@ -142,8 +142,8 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/auth/login" element={<LoginPage />} />
+        <Route path="/" element={HomePage} />
+        <Route path="/auth/login" element={LoginPage} />
       </Routes>
     </Router>
   );
