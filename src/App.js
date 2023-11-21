@@ -115,20 +115,20 @@
 // export default App;
 
 
-// import Routes from './routes/index';
-// import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './routes/index';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-// export default function App() {
-//   return (
-//     <Router>
-//     <div>
-//       <header>
-//         <Routes />
-//       </header>
-//     </div>
-//     </Router>
-//   );
-// }
+export default function App() {
+  return (
+    <Router>
+    <div>
+      <header>
+        <Routes />
+      </header>
+    </div>
+    </Router>
+  );
+}
 
 
 
