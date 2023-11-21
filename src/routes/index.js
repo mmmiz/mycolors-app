@@ -5,7 +5,7 @@ import Test from '../page/Test';
 export default function Routes() {
   return useRoutes ([
     {
-      path: "/auth", element: <Test />
+      path: "/test", element: <Test />
     }
   ])
 }
