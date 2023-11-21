@@ -1,104 +1,99 @@
-// src/App.js
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import axios from 'axios';
+// // Import necessary dependencies
+// import React, { useState, useEffect } from 'react';
+// import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+// import axios from 'axios';
 
-const Home = ({ message }) => (
-  <div>
-    <h1>React Frontend</h1>
-    <p>Message from server: {message}</p>
-  </div>
-);
 
-const About = () => (
-  <div>
-    <h2>About</h2>
-    <p>This is the about page.</p>
-  </div>
-);
+// function App() {
+//   const [message, setMessage] = useState('');
+//   const [inputText, setInputText] = useState('');
 
-const Contact = () => (
-  <div>
-    <h2>Contact</h2>
-    <p>This is the contact page.</p>
-  </div>
-);
+//   useEffect(() => {
+//     fetchData();
+//   }, []);
 
-function App() {
-  const [message, setMessage] = useState('');
-  const [inputText, setInputText] = useState('');
+//   const fetchData = async () => {
+//     try {
+//       const response = await axios.get('https://test-server-be.onrender.com/api/message');
+//       setMessage(response.data.message);
+//     } catch (error) {
+//       console.error('Error fetching data:', error);
+//     }
+//   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+//   const handleInputChange = (e) => {
+//     setInputText(e.target.value);
+//   };
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('https://test-server-be.onrender.com/api/message');
-      setMessage(response.data.message);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
 
-  const handleInputChange = (e) => {
-    setInputText(e.target.value);
-  };
+//     try {
+//       // Send a POST request to update the message on the server
+//       await axios.post('https://test-server-be.onrender.com/api/message', {
+//         message: inputText,
+//       });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+//       // Fetch the updated message
+//       fetchData();
+//     } catch (error) {
+//       console.error('Error updating message:', error);
+//     }
+//   };
 
-    try {
-      // Send a POST request to update the message on the server
-      await axios.post('https://test-server-be.onrender.com/api/message', {
-        message: inputText,
-      });
+//   return (
+//     <Router>
+//       <div>
+//         <nav>
+//           <ul>
+//             <li>
+//               <Link to="/">Home</Link>
+//             </li>
+//             <li>
+//               <Link to="/about">About</Link>
+//             </li>
+//             <li>
+//               <Link to="/contact">Contact</Link>
+//             </li>
+//           </ul>
+//         </nav>
 
-      // Fetch the updated message
-      fetchData();
-    } catch (error) {
-      console.error('Error updating message:', error);
-    }
-  };
+//         <Routes>
+//           <Route path="/" element={<Home message={message} />}>
+//             <form onSubmit={handleSubmit}>
+//               <label>
+//                 Enter something:
+//                 <input type="text" value={inputText} onChange={handleInputChange} />
+//               </label>
+//               <button type="submit">Submit</button>
+//             </form>
+//           </Route>
+//           <Route path="/about" element={<About />} />
+//           <Route path="/contact" element={<Contact />} />
+//         </Routes>
+//       </div>
+//     </Router>
+//   );
+// }
 
+// export default App;
+// //
+
+import Routes from './routes/index';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+export default function App() {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </nav>
-
-      
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-          <Route path="/">
-            <Home message={message} />
-            <form onSubmit={handleSubmit}>
-              <label>
-                Enter something:
-                <input type="text" value={inputText} onChange={handleInputChange} />
-              </label>
-              <button type="submit">Submit</button>
-            </form>
-          </Route>
-
-      </div>
+    <div>
+      <header>
+        <Routes />
+      </header>
+    </div>
     </Router>
   );
 }
 
-export default App;
+
+
+
