@@ -1,8 +1,8 @@
 import React from 'react';
 import { useRoutes } from 'react-router-dom';
-import HomePage from './page/HomePage';
-import LoginPage from './page/LoginPage';
-import Test from './page/Test';
+import HomePage from '../page/HomePage';
+import LoginPage from '../page/LoginPage';
+import Test from '../page/Test';
 
 export default function Routes() {
   const routeElements = useRoutes(
