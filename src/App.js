@@ -133,17 +133,15 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-// Components for different pages
-const HomePage = () => <div>Home Page</div>;
-const LoginPage = () => <div>Login Page</div>;
+import HomePage from "./page/HomePage";
+import LoginPage from "./page/LoginPage";
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={HomePage} />
-        <Route path="/auth/login" element={LoginPage} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/auth/login" element={<LoginPage />} />
       </Routes>
     </Router>
   );
