@@ -139,10 +139,10 @@ import Test from './page/Test';
 
 const App = () => {
   return (
-    <Router basename="/subdirectory">
+    <Router basename="/auth">
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/auth/login" element={<LoginPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/test" element={<Test />} />
       </Routes>
     </Router>
