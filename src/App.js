@@ -131,26 +131,49 @@
 // }
 
 // Example without a subdirectory
+// import React from 'react';
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import HomePage from "./page/HomePage";
+// import LoginPage from "./page/LoginPage";
+// import Test from './page/Test';
+
+// const App = () => {
+//   return (
+//     <Router basename="/home">
+//       <Routes>
+//         <Route path="/" element={<HomePage />} />
+//         <Route path="/auth/login" element={<LoginPage />} />
+//         <Route path="/test" element={<Test />} />
+//       </Routes>
+//     </Router>
+//   );
+// };
+
+// export default App;
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from "./page/HomePage";
-import LoginPage from "./page/LoginPage";
-import Test from './page/Test';
+import NavigationMenu from './NavigationMenu';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 
 const App = () => {
   return (
-    <Router basename="/home">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/auth/login" element={<LoginPage />} />
-        <Route path="/test" element={<Test />} />
-      </Routes>
+    <Router>
+      <div>
+        <NavigationMenu />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </div>
     </Router>
   );
 };
 
 export default App;
-
 
 
 
