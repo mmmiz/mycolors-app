@@ -132,28 +132,21 @@
 
 
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Routes from './routes';
-// import HomePage from "./page/HomePage";
-// import LoginPage from "./page/LoginPage";
-// import Test from './page/Test';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from "./page/HomePage";
+import LoginPage from "./page/LoginPage";
+import Test from './page/Test';
+
 
 const App = () => {
   return (
-    // <Router basename="/unko">
-    //   <Routes>
-    //     <Route path="/" element={<HomePage />} />
-    //     <Route path="/login" element={<LoginPage />} />
-    //     <Route path="/test" element={<Test />} />
-    //   </Routes>
-    // </Router>
-    <Router>
-     <div>
-      <header>
-       <Routes />
-      </header>
-     </div>
-   </Router>
+    <Router basename="/subdirectory">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/auth/login" element={<LoginPage />} />
+        <Route path="/test" element={<Test />} />
+      </Routes>
+    </Router>
   );
 };
 
