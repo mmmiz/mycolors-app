@@ -139,9 +139,9 @@ import Test from './page/Test';
 
 const App = () => {
   return (
-    <Router basename="/auth">
+    <Router basename="/">
       <Routes>
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/test" element={<Test />} />
       </Routes>
