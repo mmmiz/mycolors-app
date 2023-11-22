@@ -153,10 +153,11 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NavigationMenu from './NavigationMenu';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
+import NavigationMenu from './page/navigationMenu';
+import HomePage from './page/HomePage';
+import LoginPage from "./page/LoginPage";
+import Test from './page/Test';
+
 
 const App = () => {
   return (
@@ -165,8 +166,8 @@ const App = () => {
         <NavigationMenu />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/about" element={<LoginPage />} />
+          <Route path="/contact" element={<Test />} />
         </Routes>
       </div>
     </Router>
