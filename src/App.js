@@ -140,7 +140,7 @@ import Test from './page/Test';
 
 const App = () => {
   return (
-    <Router basename="/subdirectory">
+    <Router basename="">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/auth/login" element={<LoginPage />} />
