@@ -135,6 +135,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from "./page/HomePage";
 import LoginPage from "./page/LoginPage";
+import Test from './page/Test';
 
 const App = () => {
   return (
@@ -142,6 +143,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/auth/login" element={<LoginPage />} />
+        <Route path="/test" element={<Test />} />
       </Routes>
     </Router>
   );
