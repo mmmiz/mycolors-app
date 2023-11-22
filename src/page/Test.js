@@ -29,7 +29,7 @@ function Test() {
 
     try {
       // Send a POST request to update the message on the server
-      await axios.post('https://mycolors-api.onrender.com/api/message', {
+      await axios.post('https://mycolors-api-be.onrender.com/api/message', {
         message: inputText,
       });
 
