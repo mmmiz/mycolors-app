@@ -139,7 +139,7 @@ import Test from './page/Test';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/subdirectory">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/auth/login" element={<LoginPage />} />
@@ -150,6 +150,7 @@ const App = () => {
 };
 
 export default App;
+
 
 
 
