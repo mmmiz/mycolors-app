@@ -13,7 +13,7 @@ function Test() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://mycolors-api.onrender.com/api/message');
+      const response = await axios.get('https://mycolors-api-be.onrender.com/api/message');
       setMessage(response.data.message);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -29,7 +29,7 @@ function Test() {
 
     try {
       // Send a POST request to update the message on the server
-      await axios.post('https://mycolors-api.onrender.com/api/message', {
+      await axios.post('https://mycolors-api-be.onrender.com/api/message', {
         message: inputText,
       });
 
