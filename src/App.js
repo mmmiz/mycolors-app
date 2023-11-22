@@ -133,13 +133,13 @@
 // Example without a subdirectory
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './page/HomePage';
-import LoginPage from './page/LoginPage';
+import HomePage from "./page/HomePage";
+import LoginPage from "./page/LoginPage";
 import Test from './page/Test';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/subdirectory">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/auth/login" element={<LoginPage />} />
@@ -150,6 +150,7 @@ const App = () => {
 };
 
 export default App;
+
 
 
 
