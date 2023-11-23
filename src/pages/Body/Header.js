@@ -49,7 +49,6 @@ export default function Header() {
 
   return (
     <>
-    <Link to='/getColors'>all colors</Link>
       <Box
         sx={{
           backgroundColor: '#B2D3C2',
