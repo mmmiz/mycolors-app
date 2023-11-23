@@ -32,7 +32,7 @@ const apiUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:3000";
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
         // Details
-        axios.get(`http://localhost:3000/all/getColors/${orderNumber}`)
+        axios.get(`https://mycolors-api-be.onrender.com/${orderNumber}`)
           .then((response) => {
             setColorDetail(response.data);
             setMainPageBackground(response.data.mainColor.url);

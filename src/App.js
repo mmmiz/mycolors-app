@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NavigationMenu from './page/navigationMenu';
-import HomePage from './page/HomePage';
-import LoginPage from "./page/LoginPage";
-import Test from './page/Test';
+// import NavigationMenu from './page/navigationMenu';
+// import HomePage from './page/HomePage';
+// import LoginPage from "./page/LoginPage";
+// import Test from './page/Test';
 
 import RootLayout from './layout/Root';
 
@@ -25,15 +25,14 @@ import ProfileEditForm from './pages/Body/ProfileEditForm';
 const App = () => {
   return (
     <Router>
-
-      <div>
+      {/* <div>
         <NavigationMenu />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<LoginPage />} />
           <Route path="/Test" element={<Test />} />
         </Routes>
-      </div>
+      </div> */}
 
       <div>
       <Routes>
@@ -52,7 +51,7 @@ const App = () => {
           <Route path="profile" element={<Profile />} />
           <Route path="profile/edit" element={<ProfileEditForm />} />
         </Route>
-        
+
       </Routes>
       </div>
 
