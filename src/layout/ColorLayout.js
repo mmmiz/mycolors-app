@@ -10,7 +10,7 @@ export default function ColorLayout() {
     sx={{ width: "100%" }}
     direction="column"
     alignItems={"center"}
-  >
+    >
       <Header />
       <Outlet />
     </Stack>

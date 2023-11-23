@@ -31,7 +31,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<LoginPage />} />
-          <Route path="/contact" element={<Test />} />
+          <Route path="/Test" element={<Test />} />
         </Routes>
       </div>
 
@@ -39,26 +39,20 @@ const App = () => {
       <Routes>
         <Route path='/' element={<RootLayout />} />
 
-        <Route path='all' element={
-          <ColorLayout>
-            <Route path="getColors" element={<AllcolorSelection />} />
-            <Route path="myColors" element={<MyColors />} />
-            <Route path="myColors/likes" element={<LikedColors />} />
-            <Route path="getColors/:orderNumber" element={<ColorDetail />} />
-          </ColorLayout>
-        }/>  
+        <Route path="/all" element={<ColorLayout />}>
+          <Route path="getColors" element={<AllcolorSelection />} />
+          <Route path="myColors" element={<MyColors />} />
+          <Route path="myColors/likes" element={<LikedColors />} />
+          <Route path="getColors/:orderNumber" element={<ColorDetail />} />
+        </Route>
 
-      <Route
-        path="/auth"
-        element={
-          <AuthLayout>
-            <Route path="login" element={<LoginPageForm />} />
-            <Route path="register" element={<UserRegisterForm />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="profile/edit" element={<ProfileEditForm />} />
-          </AuthLayout>
-        }
-      />
+        <Route path="/auth" element={<AuthLayout />}>
+          <Route path="login" element={<LoginPageForm />} />
+          <Route path="register" element={<UserRegisterForm />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="profile/edit" element={<ProfileEditForm />} />
+        </Route>
+        
       </Routes>
       </div>
 
