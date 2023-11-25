@@ -41,12 +41,18 @@ export default function ColorSelect({ label, onMainColorChange, onAboutUsColorCh
     }
   };
 
+  const handleColorBoxClick = () => {
+    setShowColorPicker(!showColorPicker);
+  };
+
   return (
     <>
         <div style={{ width: '100%', height:"20vh", transition: 'background-color 0.3s ease-in-out' }}>
           
-          <div onClick={() => setShowColorPicker(!showColorPicker)}>
+          {/* <div onClick={() => setShowColorPicker(!showColorPicker)}> */}
+          <div>
             <Box
+              onClick={handleColorBoxClick}
               sx={{
                 width: '150px',
                 height: '80px',
