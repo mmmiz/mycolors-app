@@ -20,8 +20,7 @@ export default function News({ backgroundColor }) {
           color: textColor,
           padding: '20px 20px',
           width: '100%',
-          height: '80vh',
-        
+          height: {xs: '120vh', sm: '89vh'},
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',

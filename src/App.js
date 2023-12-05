@@ -20,6 +20,7 @@ import UserRegisterForm from './pages/Login/UserRegisterForm';
 import Profile from './pages/Body/Profile';
 import ProfileEditForm from './pages/Body/ProfileEditForm';
 
+import './style.css';
 
 
 const App = () => {
@@ -34,7 +35,7 @@ const App = () => {
         </Routes>
       </div> */}
 
-      <div>
+      <div className="main-container"> 
       <Routes>
         <Route path='/' element={<RootLayout />} />
 

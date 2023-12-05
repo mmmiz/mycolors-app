@@ -152,16 +152,22 @@ export default function Webpage() {
         ))}
         </Stack>
        
-      
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "40px"}}>
-        <Stack direction="row" spacing={1}> 
+      {/* Color select  */}
+      <br/>
+      <Stack>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: {xs: 'column', lg: 'row'},
+          alignItems: 'center',
+          margin: 'auto'
+        }}>
           <BackgroundPicSelect onMainImageChange={handleBackgroundSelect} selectedColor={mainColor} />
           <ColorSelect label="About Us" onAboutUsColorChange={handleAboutUsColorChange} />
           <ColorSelect label="Products" onProductsColorChange={handleProductsColorChange} />
           <ColorSelect label="News" onNewsColorChange={handleNewsColorChange} />
           <ColorSelect label="Contact" onContactColorChange={handleContactColorChange} />
-          </Stack>
-      </Box>
+        </Box>
+      </Stack>
 
       {/* REGISTER Button */}
         <div style={{ margin: '5px 0 100px 0', display: 'flex', justifyContent: 'center' }}>

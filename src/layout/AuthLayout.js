@@ -7,7 +7,7 @@ export default function authLayout() {
   return (
     <>
       <Stack
-        sx={{ width: "100%" }}
+        sx={{ maxWidth: "100%",  }}
         direction="column"
         alignItems={"center"}
       >

@@ -2,9 +2,14 @@ import React from 'react';
 import { Box, Stack } from '@mui/material';
 import { isBackgroundColorDark } from '../../utill/textColor';
 
-
 export default function Products({ backgroundColor }) {
   const textColor = isBackgroundColorDark(backgroundColor) ? 'white' : 'black';
+
+  const products = [
+    { name: 'Product 1', imageSrc: '/backgroundColor/product.jpg' },
+    { name: 'Product 2', imageSrc: '/backgroundColor/product.jpg' },
+    { name: 'Product 3', imageSrc: '/backgroundColor/product.jpg' },
+  ];
 
   return (
     <div>
@@ -14,93 +19,50 @@ export default function Products({ backgroundColor }) {
           color: textColor,
           padding: '20px 20px',
           width: '100%',
-          height: '80vh',
-          // display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column'
-
+          height: { xs: 'auto', sm: '100vh' },
+          textAlign: 'center',
         }}
       >
-        <Stack direction="column" alignItems="center" textAlign="center" marginBottom={5}>
+        <Stack direction="column" alignItems="center" marginBottom={5}>
           <h2>Products</h2>
           <b>Learn more about our products</b>
         </Stack>
 
-        <Stack // parents
-          direction="row"
-          spacing={5}
-          justifyContent="center"
-          alignItems="center" 
-          marginBottom={5}
+        <Stack
+          container
+          direction={{ xs: 'column', sm: 'row' }}
+          spacing={{ xs: 1, sm: 3 }}
         >
-          <Box
-            sx={{
-              backgroundColor: '#F2F3F4',
-              color: 'black',
-              width: '20%',
-              height: '50vh',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'column',
-            }}
-          >
-            <img
-              src="/backgroundColor/product.jpg"
-              alt="product"
-              width="60%"
-            />
-            <h2>Product 1</h2>
-          </Box>
-
-          <Box
-            sx={{
-              backgroundColor: '#F2F3F4',
-              color: 'black',
-              width: '20%',
-              height: '50vh', 
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'column',
-            }}
-          >
-            <img
-              src="/backgroundColor/product.jpg"
-              alt="product"
-              width="60%"
-            />
-            <h2>Product 2</h2>
-          </Box>
-
-          <Box
-            sx={{
-              backgroundColor: '#F2F3F4',
-              color: 'black',
-              width: '20%',
-              height: '50vh', 
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'column',
-            }}
-          >
-            {/* Your product content goes here */}
-            <img
-              src="/backgroundColor/product.jpg"
-              alt="product"
-              width="60%"
-            />
-            <h2>Product 3</h2>
-            {/* Add more product information */}
-          </Box>
+          {products.map((product, index) => (
+            <Stack
+              item
+              key={index}
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                margin: '0 auto', 
+              }}
+            >
+              <Box
+                sx={{
+                  backgroundColor: '#F2F3F4',
+                  color: 'black',
+                  width: '70%',
+                  height: '55vh',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexDirection: 'column',
+                  borderRadius: '10px',
+                }}>
+                <img src={product.imageSrc} alt={product.name} width="60%" />
+                <h2>{product.name}</h2>
+              </Box>
+            </Stack>
+          ))}
         </Stack>
       </Box>
     </div>
   );
 };
- 
-
-
-

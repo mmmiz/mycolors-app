@@ -73,7 +73,7 @@ export default function ColorSelect({ label, onMainColorChange, onAboutUsColorCh
                   color: 'black',
                 },
                 position: 'relative', //  needed for dropdown
-                zIndex: 2,
+                zIndex: showColorPicker ? 2 :1,
               }}
             >
 

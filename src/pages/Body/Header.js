@@ -40,11 +40,11 @@ export default function Header() {
       label: 'Login',
       showWhenLoggedIn: false,
     },
-    {
-      to: '/auth/register',
-      label: 'Register',
-      showWhenLoggedIn: false,
-    },  
+    // {
+    //   to: '/auth/register',
+    //   label: 'Register',
+    //   showWhenLoggedIn: false,
+    // },  
   ];
 
   return (

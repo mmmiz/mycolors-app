@@ -51,7 +51,7 @@ export default function BackgroundPicSelect({ onMainImageChange, selectedColor }
               color: 'black',
             },
             position: 'relative', 
-            zIndex: 2,
+            zIndex: showSelect ? 4 : 2,
           }}
         >
           {showSelect && (
