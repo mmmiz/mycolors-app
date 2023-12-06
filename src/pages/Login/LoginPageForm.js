@@ -56,8 +56,8 @@ const UserLoginForm = () => {
 
       <Box
         sx={{
-          width: "400px",
-          height: "400px",
+          width: {xs: "320px", lg: '400px'},
+          height: {xs: "350px", lg: '400px'},
           border: '2px #B2D3C2 solid',
           backgroundColor: '#f7f7f7',
           marginTop: '30px',

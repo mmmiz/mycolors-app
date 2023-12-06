@@ -54,7 +54,7 @@ export default function ColorSelect({ label, onMainColorChange, onAboutUsColorCh
             <Box
               onClick={handleColorBoxClick}
               sx={{
-                width: '150px',
+                width: {xs:'300px', lg:'150px'},
                 height: '80px',
                 backgroundColor: '#F3F4F6',
                 margin: '3px',
