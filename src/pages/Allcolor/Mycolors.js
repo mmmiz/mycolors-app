@@ -90,7 +90,7 @@ export default function MyColors() {
                     borderRadius: '5%',
                     border: '1px solid #DADBDD',
                     display: 'flex',
-                    flexDirection: {xs: 'column', lg: 'row'},
+                    flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
                     cursor: 'pointer',

@@ -102,7 +102,7 @@ export default function AllColorSelection() {
                   borderRadius: '5%',
                   border: '1px solid #DADBDD',
                   display: 'flex',
-                  flexDirection: {xs: 'column', lg: 'row'},
+                  flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
                   transition: 'backgroundColor 0.3s',
