@@ -143,7 +143,12 @@ export default function Webpage() {
               <Alert 
                 key={index} 
                 severity="success"
-                style={{ width: { xs: '50%', lg: '100%' } }}
+                style={{ 
+                  width: { xs: '50%', lg: '100%' },
+                  display: "flex",
+                  justifyContent: "center",
+                  alignContent: 'center',
+                }}
               >
               <AlertTitle>{message.type}</AlertTitle>
               <strong>{message.text}</strong>
