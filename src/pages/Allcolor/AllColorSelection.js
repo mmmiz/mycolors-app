@@ -94,9 +94,8 @@ export default function AllColorSelection() {
               <Box
                 key={catIndex}
                 sx={{
-                  width: { xs: '90%', lg: '20%' }, // Adjust the percentage values as needed
-                  height: 'auto',
-                  // height: '80px',
+                  width: '150px',
+                  height: '80px',
                   backgroundColor: '#F3F4F6',
                   margin: '10px',
                   padding: '15px 8px 0 8px',
