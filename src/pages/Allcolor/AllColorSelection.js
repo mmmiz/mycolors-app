@@ -74,35 +74,25 @@ export default function AllColorSelection() {
 
 
 
-
   return (
     <>
       <br />
-      <div style={{textAlign: 'center'}}>
-      <h2>All Colors</h2>
-      {allColors.map((color, index) => (
-        <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-          
-          {['mainColor', 'aboutUsColor', 'productsColor', 'newsColor', 'contactColor'].map((category, catIndex) => {
-            const colorValue =
-              category === 'mainColor' && typeof color[category] === 'object'
-                ? color[category].name
-                : color[category];
-            const displayValue = typeof colorValue === 'object' ? colorValue.name : colorValue;
-
-            return (
+      <div style={{ textAlign: 'center' }}>
+        <h2>All Colors</h2>
+        <Grid container spacing={2}>
+          {allColors.map((color, index) => (
+            <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
               <Box
-                key={catIndex}
                 sx={{
-                  width: { xs: '90%', lg: '20%' }, // Adjust the percentage values as needed
-                  height: '80px',
+                  width: '100%',
+                  height: 'auto',
                   backgroundColor: '#F3F4F6',
                   margin: '10px',
                   padding: '15px 8px 0 8px',
                   borderRadius: '5%',
                   border: '1px solid #DADBDD',
                   display: 'flex',
-                  flexDirection: {xs: 'column', lg: 'row'},
+                  flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
                   transition: 'backgroundColor 0.3s',
@@ -112,44 +102,31 @@ export default function AllColorSelection() {
                   },
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', marginRight: '10px' }}>
-                  <div
+                {/* Your content */}
+                <Stack spacing={2} marginLeft='10px'>
+                  <Button
+                    size='small'
+                    variant="contained"
+                    type='submit'
+                    sx={{ backgroundColor: '#FFBE33', color: 'white' }}
+                    onClick={() => handleDetailsClick(color.orderNumber)}
+                  >
+                    Details
+                  </Button>
+                  <p
                     style={{
-                      backgroundColor: colorValue,
-                      width: '40px',
-                      height: '40px',
-                      marginRight: '10px',
-                      borderRadius: '50%',
+                      color: likedColors[color.orderNumber] ? 'red' : 'grey',
+                      cursor: 'pointer',
                     }}
-                  />
-                  <b>{category.replace('Color', '')}</b>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <p>{displayValue}</p>
-                </div>
+                    onClick={() => handleLikeClick(color.orderNumber)}
+                  >
+                    {likedColors[color.orderNumber] ? '❤︎ Liked' : '❤︎ Like'}
+                  </p>
+                </Stack>
               </Box>
-            );
-          })}
-  
-          <Stack spacing={2} marginLeft='10px'>
-
-          
-            <Button size='small' variant="contained" type='submit'sx={{ backgroundColor: '#FFBE33', color: 'white' }} onClick={() => handleDetailsClick(color.orderNumber)}>Details</Button>
-
-            <p
-              style={{
-                color: likedColors[color.orderNumber] ? 'red' : 'grey',
-                cursor: 'pointer',
-              }}
-              onClick={() => handleLikeClick(color.orderNumber)}
-            >
-              {likedColors[color.orderNumber] ? '❤︎ Liked' : '❤︎ Like'}
-            </p>
-
-          </Stack>
-        </div>
-      ))}
-
+            </Grid>
+          ))}
+        </Grid>
       </div>
     </>
   );
