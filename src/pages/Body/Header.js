@@ -9,7 +9,7 @@ import GuestLogin from '../Login/GuestLogin';
 export default function Header() {
   const isLoggedIn = localStorage.getItem('token');
   const [anchorEl, setAnchorEl] = useState(null);
-
+  // const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -17,6 +17,9 @@ export default function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  // const handleMobileMenuToggle = () => {
+  //   setIsMobileMenuOpen(!isMobileMenuOpen);
+  // };
 
 
   // navi
@@ -40,11 +43,11 @@ export default function Header() {
       label: 'Login',
       showWhenLoggedIn: false,
     },
-    // {
-    //   to: '/auth/register',
-    //   label: 'Register',
-    //   showWhenLoggedIn: false,
-    // },  
+    {
+      to: '/auth/register',
+      label: 'Register',
+      showWhenLoggedIn: false,
+    },  
   ];
 
   return (
@@ -59,7 +62,7 @@ export default function Header() {
         }}
       >
 
-        <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Stack direction="row" justifyContent="space-around" alignItems="center" sx={{margin: '0 50px'}}>
           {/* Left side of the top bar */}
           <Box 
             component={Link}
