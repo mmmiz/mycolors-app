@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Button, Stack, Grid } from '@mui/material';
+import { Box, Button, Stack } from '@mui/material';
 
 const apiUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:3000";
 
@@ -74,25 +74,36 @@ export default function AllColorSelection() {
 
 
 
+
   return (
     <>
       <br />
-      <div style={{ textAlign: 'center' }}>
-        <h2>All Colors</h2>
-        <Grid container spacing={2}>
-          {allColors.map((color, index) => (
-            <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
+      <div style={{textAlign: 'center'}}>
+      <h2>All Colors</h2>
+      {allColors.map((color, index) => (
+        <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+          
+          {['mainColor', 'aboutUsColor', 'productsColor', 'newsColor', 'contactColor'].map((category, catIndex) => {
+            const colorValue =
+              category === 'mainColor' && typeof color[category] === 'object'
+                ? color[category].name
+                : color[category];
+            const displayValue = typeof colorValue === 'object' ? colorValue.name : colorValue;
+
+            return (
               <Box
+                key={catIndex}
                 sx={{
-                  width: '100%',
+                  width: { xs: '90%', lg: '20%' }, // Adjust the percentage values as needed
                   height: 'auto',
+                  // height: '80px',
                   backgroundColor: '#F3F4F6',
                   margin: '10px',
                   padding: '15px 8px 0 8px',
                   borderRadius: '5%',
                   border: '1px solid #DADBDD',
                   display: 'flex',
-                  flexDirection: 'column',
+                  flexDirection: {xs: 'column', lg: 'row'},
                   alignItems: 'center',
                   justifyContent: 'center',
                   transition: 'backgroundColor 0.3s',
@@ -102,31 +113,44 @@ export default function AllColorSelection() {
                   },
                 }}
               >
-                {/* Your content */}
-                <Stack spacing={2} marginLeft='10px'>
-                  <Button
-                    size='small'
-                    variant="contained"
-                    type='submit'
-                    sx={{ backgroundColor: '#FFBE33', color: 'white' }}
-                    onClick={() => handleDetailsClick(color.orderNumber)}
-                  >
-                    Details
-                  </Button>
-                  <p
+                <div style={{ display: 'flex', alignItems: 'center', marginRight: '10px' }}>
+                  <div
                     style={{
-                      color: likedColors[color.orderNumber] ? 'red' : 'grey',
-                      cursor: 'pointer',
+                      backgroundColor: colorValue,
+                      width: '40px',
+                      height: '40px',
+                      marginRight: '10px',
+                      borderRadius: '50%',
                     }}
-                    onClick={() => handleLikeClick(color.orderNumber)}
-                  >
-                    {likedColors[color.orderNumber] ? '❤︎ Liked' : '❤︎ Like'}
-                  </p>
-                </Stack>
+                  />
+                  <b>{category.replace('Color', '')}</b>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <p>{displayValue}</p>
+                </div>
               </Box>
-            </Grid>
-          ))}
-        </Grid>
+            );
+          })}
+  
+          <Stack spacing={2} marginLeft='10px'>
+
+          
+            <Button size='small' variant="contained" type='submit'sx={{ backgroundColor: '#FFBE33', color: 'white' }} onClick={() => handleDetailsClick(color.orderNumber)}>Details</Button>
+
+            <p
+              style={{
+                color: likedColors[color.orderNumber] ? 'red' : 'grey',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleLikeClick(color.orderNumber)}
+            >
+              {likedColors[color.orderNumber] ? '❤︎ Liked' : '❤︎ Like'}
+            </p>
+
+          </Stack>
+        </div>
+      ))}
+
       </div>
     </>
   );

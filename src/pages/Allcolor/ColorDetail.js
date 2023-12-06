@@ -144,7 +144,7 @@ const apiUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:3000";
                   <Box
                     key={catIndex}
                     sx={{
-                      width: '150px',
+                      width: {xs:'300px', lg:'150px'},
                       height: '80px',
                       backgroundColor: '#F3F4F6',
                       margin: '10px',
