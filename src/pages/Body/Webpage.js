@@ -140,11 +140,11 @@ export default function Webpage() {
         }}> 
           {messages.map((message, index) => (
             message.condition && (
-            <Alert 
-             key={index} 
-             severity="success"
-             style={{ width: '100%' }}
-            >
+              <Alert 
+                key={index} 
+                severity="success"
+                style={{ width: { xs: '50%', lg: '100%' } }}
+              >
               <AlertTitle>{message.type}</AlertTitle>
               <strong>{message.text}</strong>
             </Alert>

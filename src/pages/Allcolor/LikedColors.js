@@ -75,7 +75,7 @@ export default function LikedColors() {
                 borderRadius: '5%',
                 border: '1px solid #DADBDD',
                 display: 'flex',
-                flexDirection: 'column',
+                flexDirection: {xs: 'column', lg: 'row'},
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',

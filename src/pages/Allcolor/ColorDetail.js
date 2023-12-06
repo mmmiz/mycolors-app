@@ -152,7 +152,7 @@ const apiUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:3000";
                       borderRadius: '5%',
                       border: '1px solid #DADBDD',
                       display: 'flex',
-                      flexDirection: 'column',
+                      flexDirection: {xs: 'column', lg: 'row'},
                       alignItems: 'center',
                       justifyContent: 'center',
                       cursor: 'pointer',
