@@ -23,7 +23,7 @@ export default function Footer({backgroundColor}) {
         direction="row"
         alignItems="center"
         spacing={10}
-        justifyContent="space-between"
+        justifyContent={{xs: "space-around", sm: 'space-between', lg: 'space-between'}}
       >
         {/* Left side of the footer */}
         <Box sx={{marginLeft: '30px'}}>
