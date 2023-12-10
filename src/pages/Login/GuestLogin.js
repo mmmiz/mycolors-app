@@ -1,8 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import Modal from 'react-modal';
 
 const apiUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:3000";
 
@@ -20,14 +19,13 @@ export default function GuestLogin() {
         email: 'guest_login@gmail.com',
         password: '12345678',
       });
+
       console.log(response.data.message);
       const { token } = response.data;
       localStorage.setItem('token', token);
       navigate('/?guestLoginSuccess=true');
-      toast.success('Logged in successfully!');
     } catch (error) {
       console.error('ERROR BOOM!', error);
-      toast.error('Login failed. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -43,7 +41,13 @@ export default function GuestLogin() {
   return (
     <>
       <p onClick={handleGuestLogin}>{loading ? 'Logging in...' : 'Guest Login'}</p>
-      <ToastContainer />
+
+      <Modal
+        isOpen={loading}
+        contentLabel="Loading"
+      >
+        <p>Loading...</p>
+      </Modal>
     </>
   );
 }
