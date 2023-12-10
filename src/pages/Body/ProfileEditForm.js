@@ -5,13 +5,12 @@ import { Box, Button, Stack, TextField } from '@mui/material';
 
 const apiUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:3000";
 
-
 const ProfileEditForm = () => {
   const [newEmail, setNewEmail] = useState('');
+  const [originalEmail, setOriginalEmail] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
-    
     const token = localStorage.getItem('token');
     if (token) {
       axios.get(`${apiUrl}/auth/profile`, {
@@ -20,8 +19,8 @@ const ProfileEditForm = () => {
         },
       })
       .then((response) => {
+        setOriginalEmail(response.data.user.email);
         setNewEmail(response.data.user.email);
- 
       })
       .catch((error) => {
         console.error('Error Fetching user data:', error);
@@ -35,8 +34,15 @@ const ProfileEditForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check if the user is a guest or if the email is unchanged
+    if (originalEmail === 'guest_login@gmail.com') {
+      window.alert('Cannot change email for guest user.');
+      return;
+    }
+
     const token = localStorage.getItem('token');
-    
+
     try {
       const response = await axios.put(
         `${apiUrl}/auth/profile/edit`,
@@ -91,7 +97,6 @@ const ProfileEditForm = () => {
 
         </Stack>
     </Box>
-
   );
 };
 
