@@ -87,6 +87,7 @@ const ProfileEditForm = () => {
             <Button
               variant="contained"
               type='submit'
+              disabled={originalEmail === 'guest_login@gmail.com'}
               sx={{ backgroundColor: '#FFBE33', color: 'white', width: 'fit-content' }}
             >
               Update

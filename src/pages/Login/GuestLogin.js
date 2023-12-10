@@ -28,6 +28,9 @@ export default function GuestLogin() {
       console.error('ERROR BOOM!', error);
     } finally {
       setLoading(false);
+      setTimeout(() => {
+        window.alert('Logging in.... ');
+      }, 3000);
     }
   };
 
@@ -41,7 +44,6 @@ export default function GuestLogin() {
   return (
     <>
       <p onClick={handleGuestLogin}>{loading ? 'Logging in...' : 'Guest Login'}</p>
-
     </>
   );
 }
