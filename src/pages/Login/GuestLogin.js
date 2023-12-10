@@ -14,7 +14,7 @@ const LoadingMessage = ({ loading }) => {
       setIsVisible(true);
       timeout = setTimeout(() => {
         setIsVisible(false);
-      }, 3000);
+      }, 10000);
     } else {
       setIsVisible(false);
     }
