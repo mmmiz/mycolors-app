@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { Box, Button, Stack, TextField } from '@mui/material';
+import { Box, Button, Stack, TextField, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 
 const apiUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:3000";
 
 const ProfileEditForm = () => {
   const [newEmail, setNewEmail] = useState('');
   const [originalEmail, setOriginalEmail] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,12 +33,15 @@ const ProfileEditForm = () => {
     setNewEmail(e.target.value);
   };
 
+  const handleAlertClose = () => {
+    setShowAlert(false);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if the user is a guest or if the email is unchanged
     if (originalEmail === 'guest_login@gmail.com') {
-      window.alert('Cannot change email for guest user.');
+      setShowAlert(true);
       return;
     }
 
@@ -97,6 +101,19 @@ const ProfileEditForm = () => {
         </form>
 
         </Stack>
+
+        {/* Alert Dialog */}
+        <Dialog open={showAlert} onClose={handleAlertClose}>
+          <DialogTitle>Cannot change email for guest user</DialogTitle>
+          <DialogContent>
+            <p>You cannot change the email for the guest user.</p>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleAlertClose} autoFocus>
+              OK
+            </Button>
+          </DialogActions>
+        </Dialog>
     </Box>
   );
 };
