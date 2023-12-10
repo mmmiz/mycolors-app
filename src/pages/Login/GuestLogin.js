@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Modal from 'react-modal';
 
 const apiUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:3000";
 
@@ -14,6 +13,7 @@ export default function GuestLogin() {
 
     try {
       setLoading(true);
+      window.alert('Logging in.... ');
 
       const response = await axios.post(`${apiUrl}/auth/login`, {
         email: 'guest_login@gmail.com',
@@ -42,12 +42,6 @@ export default function GuestLogin() {
     <>
       <p onClick={handleGuestLogin}>{loading ? 'Logging in...' : 'Guest Login'}</p>
 
-      <Modal
-        isOpen={loading}
-        contentLabel="Loading"
-      >
-        <p>Loading...</p>
-      </Modal>
     </>
   );
 }
