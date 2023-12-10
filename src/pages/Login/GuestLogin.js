@@ -4,6 +4,34 @@ import { useNavigate } from 'react-router-dom';
 
 const apiUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:3000";
 
+
+const LoadingMessage = ({ loading }) => {
+  const [isVisible, setIsVisible] = useState(loading);
+
+  useEffect(() => {
+    let timeout;
+    if (loading) {
+      setIsVisible(true);
+      timeout = setTimeout(() => {
+        setIsVisible(false);
+      }, 3000);
+    } else {
+      setIsVisible(false);
+    }
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [loading]);
+
+  return isVisible ? (
+    <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', color: 'white', padding: '10px', position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: '1000' }}>
+      Logging in...
+    </div>
+  ) : null;
+};
+
+
 export default function GuestLogin() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -13,7 +41,6 @@ export default function GuestLogin() {
 
     try {
       setLoading(true);
-      window.alert('Logging in.... ');
 
       const response = await axios.post(`${apiUrl}/auth/login`, {
         email: 'guest_login@gmail.com',
@@ -28,9 +55,6 @@ export default function GuestLogin() {
       console.error('ERROR BOOM!', error);
     } finally {
       setLoading(false);
-      setTimeout(() => {
-        window.alert('Logging in.... ');
-      }, 3000);
     }
   };
 
@@ -44,6 +68,7 @@ export default function GuestLogin() {
   return (
     <>
       <p onClick={handleGuestLogin}>{loading ? 'Logging in...' : 'Guest Login'}</p>
+      <LoadingMessage loading={loading} />
     </>
   );
 }
