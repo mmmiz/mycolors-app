@@ -22,14 +22,13 @@ export default function GuestLogin() {
     try {
       setLoading(true);
 
-      const response = await axios.post(`${apiUrl}/auth/login`, {
+      await axios.post(`${apiUrl}/auth/login`, {
         email: 'guest_login@gmail.com',
         password: '12345678',
       });
-
-      console.log(response.data.message);
-      const { token } = response.data;
-      localStorage.setItem('token', token);
+      // console.log(response.data.message);
+      // const { token } = response.data;
+      // localStorage.setItem('token', token);
       navigate('/?guestLoginSuccess=true');
     } catch (error) {
       console.error('ERROR BOOM!', error);
